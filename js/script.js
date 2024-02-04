@@ -68,7 +68,7 @@ let quotes = [
     year: "1933",
     tag: "Inspirational"
   },
-  
+
   {
     quote: "It is during our darkest moments that we must focus to see the light.",
     source: "Aristotle Onassis",
@@ -114,17 +114,34 @@ let quotes = [
 
 /***
  * `getRandomQuote` function
+ * CReate random number. Use random number as quote index to choose the quote
 ***/
+
+function getRandomQuote() {
+    let randomNumber = Math.floor(Math.random() * quotes.length);
+    let randomQuote = quotes[randomNumber];
+    return randomQuote;
+};
+
+
+
 
 /***
  * `printQuote` function
 ***/
 
+// function printQuote() {
 
+//   let http = `
+//   <p class="quote"> ${quotes[randomNumber].quote}</p>
+//   <p class="source"> ${quotes[randomNumber].source} <span class="citation"> ${quotes[randomNumber].citation}"</span> <span class="year"> ${quotes[randomNumber].year}</span> <span class="citation">${quotes[randomNumber].citation}"</span> <span class="tag"> ${quotes[randomNumber].tag}"</span> </p>  
+//   `
+
+// };
 
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-document.getElementById('load-quote').addEventListener("click", printQuote, false);
+// document.getElementById('load-quote').addEventListener("click", printQuote, false);
