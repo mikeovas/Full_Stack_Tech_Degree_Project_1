@@ -38,6 +38,14 @@ let quotes = [
   },
 
   {
+    quote: "Logic clearly dictates that the needs of the many outweigh the needs of the few.",
+    source: "Spock",
+    citation: "The Wrath of Khan",
+    year: "1982",
+    tag: "Entertainment"
+  },
+
+  {
     quote: "Life is like a box of chocolates. You never know what you're gonna get.",
     source: "Forest Gump",
     citation: "The movie - Forest Gump.",
@@ -60,15 +68,7 @@ let quotes = [
     year: "1933",
     tag: "Inspirational"
   },
-
-  {
-    quote: "Darkness cannot drive out darkness: only light can do that. Hate cannot drive out hate: only love can do that.",
-    source: "Martin Luther King Jr.",
-    citation: "'Loving Your Enemies Sermon' ",
-    year: "1957",
-    tag: "Inspirational"
-  },
-
+  
   {
     quote: "It is during our darkest moments that we must focus to see the light.",
     source: "Aristotle Onassis",
