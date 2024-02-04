@@ -48,7 +48,7 @@ let quotes = [
   {
     quote: "Life is like a box of chocolates. You never know what you're gonna get.",
     source: "Forest Gump",
-    citation: "The movie - Forest Gump.",
+    citation: "The movie - Forest Gump",
     year: "1994",
     tag: "Entertainment"
   },
@@ -126,14 +126,51 @@ function getRandomQuote() {
 
 /***
  * `printQuote` function
+ * Random quote object used to create a template literal based on several conditions.
 ***/
 
 function printQuote() {
   let randomQuote = getRandomQuote();
+
   let quoteToDisplay = `
-  <p class="quote"> ${randomQuote.quote}</p>
-  <p class="source"> ${randomQuote.source} <span class="citation"> ${randomQuote.citation}"</span> <span class="year"> ${randomQuote.year}</span> <span class="citation">${randomQuote.citation}"</span> <span class="tag"> ${randomQuote.tag}"</span> </p>  
-  `
+    <p class="quote">${randomQuote.quote}</p>
+    <p class="source">${randomQuote.source}`
+    
+    if (randomQuote.citation !=="") {
+      quoteToDisplay = `
+        <p class="quote">${randomQuote.quote}</p>
+        <p class="source">${randomQuote.source}
+        <span class="citation">${randomQuote.citation}</span>`
+    }
+
+    if (randomQuote.year !=="") {
+      quoteToDisplay = `
+        <p class="quote">${randomQuote.quote} </p>
+        <p class="source">${randomQuote.source}
+        <span class="citation">${randomQuote.citation}</span>
+        <span class="year">${randomQuote.year}</span>`
+    } 
+
+    if (randomQuote.year !=="") {
+      quoteToDisplay = `
+        <p class="quote">${randomQuote.quote}</p>
+        <p class="source">${randomQuote.source}
+        <span class="citation">${randomQuote.citation}</span>
+        <span class="year">${randomQuote.year}</span>`
+    } 
+
+    if (randomQuote.tag !=="") {
+      quoteToDisplay = `
+        <p class="quote">${randomQuote.quote}</p>
+        <p class="source">${randomQuote.source}
+        <span class="citation">${randomQuote.citation}</span>
+        <span class="year">${randomQuote.year}</span>
+        <span class="tag">${randomQuote.tag}</span>`
+    }  
+
+    quoteToDisplay = quoteToDisplay + "/<p>";
+    console.log(quoteToDisplay);
+
   document.getElementById('quote-box').innerHTML = quoteToDisplay;
 
 };
