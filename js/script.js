@@ -114,34 +114,33 @@ let quotes = [
 
 /***
  * `getRandomQuote` function
- * CReate random number. Use random number as quote index to choose the quote
+ * Create random number. Use random number as quote index to choose the quotes object.
 ***/
 
 function getRandomQuote() {
     let randomNumber = Math.floor(Math.random() * quotes.length);
-    let randomQuote = quotes[randomNumber];
-    return randomQuote;
+    let randomQuoteObject = quotes[randomNumber];
+    return randomQuoteObject;
 };
-
-
 
 
 /***
  * `printQuote` function
 ***/
 
-// function printQuote() {
+function printQuote() {
+  let randomQuote = getRandomQuote();
+  let quoteToDisplay = `
+  <p class="quote"> ${randomQuote.quote}</p>
+  <p class="source"> ${randomQuote.source} <span class="citation"> ${randomQuote.citation}"</span> <span class="year"> ${randomQuote.year}</span> <span class="citation">${randomQuote.citation}"</span> <span class="tag"> ${randomQuote.tag}"</span> </p>  
+  `
+  document.getElementById('quote-box').innerHTML = quoteToDisplay;
 
-//   let http = `
-//   <p class="quote"> ${quotes[randomNumber].quote}</p>
-//   <p class="source"> ${quotes[randomNumber].source} <span class="citation"> ${quotes[randomNumber].citation}"</span> <span class="year"> ${quotes[randomNumber].year}</span> <span class="citation">${quotes[randomNumber].citation}"</span> <span class="tag"> ${quotes[randomNumber].tag}"</span> </p>  
-//   `
-
-// };
+};
 
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-// document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", printQuote, false);
