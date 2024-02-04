@@ -3,12 +3,8 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// For assistance: 
-  // Check the "Project Resources" section of the project instructions
-  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
-
 /*** 
- * An array of Objects showing Famous Quotes. 
+ * An array of Objects created showing Famous Quotes. 
  * An additional property was added called Tags to help group together the different quotes into categories.
 ***/
 
@@ -108,13 +104,12 @@ let quotes = [
     year: "1944",
     tag: "Leadership"
   }
-
 ];
 
 
 /***
  * `getRandomQuote` function
- * Create random number. Use random number as quote index to choose the quotes object.
+ * Function will create a random number and use it as the index value for the quotes array in order to randomly choose a quotes object.
 ***/
 
 function getRandomQuote() {
@@ -126,7 +121,7 @@ function getRandomQuote() {
 
 /***
  * `printQuote` function
- * Random quote object used to create a template literal based on several conditions.
+ * A random quote object is generated using the getRandomQuote() function and used to create a template literal based on several conditions, to be printed to the screen.
 ***/
 
 function printQuote() {
@@ -168,16 +163,14 @@ function printQuote() {
         <span class="tag">${randomQuote.tag}</span>`
     }  
 
-    quoteToDisplay = quoteToDisplay + "/<p>";
-    console.log(quoteToDisplay);
+  quoteToDisplay = quoteToDisplay + "/<p>";
 
   document.getElementById('quote-box').innerHTML = quoteToDisplay;
 
 };
 
 /***
- * click event listener for the print quote button
- * DO NOT CHANGE THE CODE BELOW!!
+ * An initial quote is displayed. Then, a button with a click event listener is used to print a new random quote.
 ***/
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
