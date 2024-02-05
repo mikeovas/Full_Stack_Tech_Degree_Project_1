@@ -170,7 +170,40 @@ function printQuote() {
 };
 
 /***
+ *  This section will have several functions to create a random color, in the form of a RGB color code, to use as the background display.
+ *  A random RGB color code will be generated and then used to change the body background-color value.
+ ***/
+
+function getRandomNumber(max) {
+  return Math.floor(Math.random() * max +1);
+};    
+
+function getRandomRGBColor() {
+  let r = getRandomNumber(255);
+  let g = getRandomNumber(255);
+  let b = getRandomNumber(255);
+  return [r,g,b];
+}
+
+function changeColor() {
+  let RGBColor = getRandomRGBColor();
+  console.log({RGBColor});  // to check that a random RGB color is being created...it appears to be
+  document.getElementsByTagName('body').style.background-color = RGBColor;  // thought I could target the background-color value in the body using this code and then change its value
+}
+
+function clickHandler(event) {
+  console.log('test 2')  // used to test the function works...will be removed later
+  changeColor();
+  event.preventDefault();
+}
+
+console.log(getRandomRGBColor());
+
+
+/***
  * An initial quote is displayed. Then, a button with a click event listener is used to print a new random quote.
 ***/
 
+
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", clickHandler, false);
