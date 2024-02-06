@@ -170,34 +170,33 @@ function printQuote() {
 };
 
 /***
- *  This section will have several functions to create a random color, in the form of a RGB color code, to use as the background display.
- *  A random RGB color code will be generated and then used to change the body background-color value.
+ *  This section will have several functions to create a random RGB color code, to be used to change the background display color.
  ***/
 
+// A function to generate a random number 
 function getRandomNumber(max) {
   return Math.floor(Math.random() * max +1);
 };    
 
+// A function to generate a random RGB color code
 function getRandomRGBColor() {
   let r = getRandomNumber(255);
   let g = getRandomNumber(255);
   let b = getRandomNumber(255);
-  return [r,g,b];
+  return `rgb(${r},${g},${b})`;
 }
 
+// A function to use the random RGB color code generated to change the background display color
 function changeColor() {
   let RGBColor = getRandomRGBColor();
-  console.log({RGBColor});  // to check that a random RGB color is being created...it appears to be
-  document.getElementsByTagName('body').style.background-color = RGBColor;  // thought I could target the background-color value in the body using this code and then change its value
+  document.querySelector('body').style.backgroundColor = RGBColor; 
 }
 
+// A clickHandler to change the background color
 function clickHandler(event) {
-  console.log('test 2')  // used to test the function works...will be removed later
   changeColor();
   event.preventDefault();
 }
-
-console.log(getRandomRGBColor());
 
 
 /***
