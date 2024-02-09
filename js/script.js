@@ -163,11 +163,12 @@ function printQuote() {
         <span class="tag">${randomQuote.tag}</span>`
     }  
 
-  quoteToDisplay = quoteToDisplay + "/<p>";
+  quoteToDisplay = quoteToDisplay + "</p>";
 
   document.getElementById('quote-box').innerHTML = quoteToDisplay;
 
 };
+
 
 /***
  *  This section will have several functions to create a random RGB color code, to be used to change the background display color.
@@ -192,17 +193,37 @@ function changeColor() {
   document.querySelector('body').style.backgroundColor = RGBColor; 
 }
 
-// A clickHandler to change the background color
-function clickHandler(event) {
+// // A function to change the background color and quote
+function changeQuote() {
+  printQuote();
   changeColor();
-  event.preventDefault();
 }
 
 
 /***
- * An initial quote is displayed. Then, a button with a click event listener is used to print a new random quote.
-***/
+ * This section will allow the quotes to autorefresh every ten seconds using the setInterval() method.
+ ***/
+let isQuoteRefreshing = false;
 
+const cycleLength = 10; // variable to store the length of time the quote is being displayed in seconds
+let quoteRefreshInterval;
 
-document.getElementById('load-quote').addEventListener("click", printQuote, false);
-document.getElementById('load-quote').addEventListener("click", clickHandler, false);
+// Set Time Interval to stop the carousel of Quotes
+const refreshCycles = 10;
+const refreshAutoStopTime = refreshCycles * cycleLength; // time in seconds
+
+function stopQuoteDelay() {
+  clearInterval(quoteRefreshInterval);
+  isQuoteRefreshing = false;
+}
+
+function quoteDelay() {
+  if (!isQuoteRefreshing) {
+    quoteRefreshInterval = setInterval(changeQuote, cycleLength * 1000);  // multiply cycleLength by 1000 to put time into correct value - ms
+    isQuoteRefreshing = true;
+    setTimeout(stopQuoteDelay, refreshAutoStopTime * 1000);
+  }
+};
+
+//Click Handler to start the carousel of quotes displayed
+document.getElementById('load-quote').addEventListener("click", quoteDelay);
