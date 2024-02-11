@@ -128,45 +128,26 @@ function printQuote() {
   let randomQuote = getRandomQuote();
 
   let quoteToDisplay = `
-    <p class="quote">${randomQuote.quote}</p>
-    <p class="source">${randomQuote.source}`
-    
-    if (randomQuote.citation !=="") {
-      quoteToDisplay = `
-        <p class="quote">${randomQuote.quote}</p>
-        <p class="source">${randomQuote.source}
-        <span class="citation">${randomQuote.citation}</span>`
-    }
+  <p class="quote">${randomQuote.quote}</p>
+  <p class="source">${randomQuote.source}`
+  
+  if (randomQuote.citation !=="") {
+    quoteToDisplay += `
+      <span class="citation">${randomQuote.citation}</span>`
+  }
 
-    if (randomQuote.year !=="") {
-      quoteToDisplay = `
-        <p class="quote">${randomQuote.quote} </p>
-        <p class="source">${randomQuote.source}
-        <span class="citation">${randomQuote.citation}</span>
-        <span class="year">${randomQuote.year}</span>`
-    } 
+  if (randomQuote.year !=="") {
+    quoteToDisplay += `
+      <span class="year">${randomQuote.year}</span>`
+  } 
 
-    if (randomQuote.year !=="") {
-      quoteToDisplay = `
-        <p class="quote">${randomQuote.quote}</p>
-        <p class="source">${randomQuote.source}
-        <span class="citation">${randomQuote.citation}</span>
-        <span class="year">${randomQuote.year}</span>`
-    } 
-
-    if (randomQuote.tag !=="") {
-      quoteToDisplay = `
-        <p class="quote">${randomQuote.quote}</p>
-        <p class="source">${randomQuote.source}
-        <span class="citation">${randomQuote.citation}</span>
-        <span class="year">${randomQuote.year}</span>
-        <span class="tag">${randomQuote.tag}</span>`
-    }  
+  if (randomQuote.tag !=="") {
+    quoteToDisplay += `
+      <span class="tag">${randomQuote.tag}</span>`
+  }  
 
   quoteToDisplay = quoteToDisplay + "</p>";
-
   document.getElementById('quote-box').innerHTML = quoteToDisplay;
-
 };
 
 
